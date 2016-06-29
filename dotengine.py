@@ -26,14 +26,15 @@ class DotEngine(object):
                 'user_id':user_id,
                 'app_key':self.app_key,
                 'expires':expires,
-                'role':role
+                'role':role,
+                'nonce':nonce
                 }
 
-        token = jwt.encode(params,self.app_secret)
+        sign = jwt.encode(params,self.app_secret)
 
         data = {
                 'app_key':self.app_key
-                'token':token
+                'sign':sign
                 }
 
         url = dot_engine_api_url + 'createToken'
