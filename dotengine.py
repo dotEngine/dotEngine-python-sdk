@@ -7,7 +7,7 @@ import requests  # requests is great why not use this
 import jwt       # jwt is perfact  why not use it
 
 
-dot_engine_api_url = 'http://api.dot.cc/apis/'
+dot_engine_api_url = 'http://api.dot.cc/api/'
 
 class DotEngine(object):
 
@@ -33,7 +33,7 @@ class DotEngine(object):
         sign = jwt.encode(params,self.app_secret)
 
         data = {
-                'app_key':self.app_key
+                'app_key':self.app_key,
                 'sign':sign
                 }
 
@@ -43,7 +43,6 @@ class DotEngine(object):
 
         # more beautifule error handle
         # TBD
-
         return r.json()
 
 
